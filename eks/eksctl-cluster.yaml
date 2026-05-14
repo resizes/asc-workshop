@@ -1,0 +1,41 @@
+# eksctl cluster template — workshop EKS track
+#
+# Replace guillermotti with your GitHub handle (valid DNS label, lowercase).
+# Region is fixed for this workshop: eu-west-1
+#
+# Create:
+#   export CLUSTER_NAME="your-github-username"
+#   eksctl create cluster -f eksctl-cluster.yaml
+#
+---
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: REPLACE_GITHUB_USERNAME
+  region: eu-west-1
+  version: "1.35"
+
+# Required so IRSA (IAM Roles for Service Accounts) works for LiteLLM → Bedrock.
+iam:
+  withOIDC: true
+
+addons:
+  - name: aws-ebs-csi-driver
+    wellKnownPolicies:
+      ebsCSIController: true
+
+managedNodeGroups:
+  - name: gpu
+    instanceTypes:
+      - g4dn.xlarge
+    desiredCapacity: 1
+    minSize: 1
+    maxSize: 3
+    volumeSize: 120
+    amiFamily: AmazonLinux2023
+    labels:
+      workload: gpu
+
+autoModeConfig:
+  enabled: false

@@ -1,0 +1,5 @@
+Switzer is distributed by the Indian Type Foundry via Fontshare.
+Source: https://www.fontshare.com/fonts/switzer
+License: see Fontshare / ITF Free Font License on the font page.
+
+woff2 files in this folder were downloaded for self-hosting in this workshop deck.

@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - 00-gp3-storageclass.yaml
+  - 00-namespace.yaml
+  - 01-litellm-serviceaccount.yaml
+  - 02-ollama-pvc.yaml
+  - 03-ollama-deployment.yaml
+  - 04-ollama-service.yaml
+  - 05-litellm-configmap.yaml
+  - 06-litellm-deployment.yaml
+  - 07-litellm-service.yaml

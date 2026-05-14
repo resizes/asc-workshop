@@ -1,0 +1,22 @@
+# Helm values for Open WebUI — single OpenAI-compatible backend: in-cluster LiteLLM.
+#
+# Install:
+#   helm repo add open-webui https://helm.openwebui.com/
+#   helm repo update
+#   helm upgrade --install open-webui open-webui/open-webui -n llmops -f eks/helm/open-webui-values.yaml
+#
+# Secret `litellm-secrets` must exist in `llmops` with key LITELLM_MASTER_KEY (see WORKSHOP.md Part B).
+
+ingress:
+  enabled: false
+
+# Workshop Ollama runs separately; LiteLLM is the only model gateway.
+ollama:
+  enabled: false
+
+pipelines:
+  enabled: false
+
+openaiBaseApiUrl: "http://litellm.llmops.svc.cluster.local:4000/v1"
+openaiApiKeyExistingSecret: litellm-secrets
+openaiApiKeyExistingSecretKey: LITELLM_MASTER_KEY

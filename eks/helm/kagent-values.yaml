@@ -1,0 +1,29 @@
+# helm upgrade --install kagent oci://ghcr.io/kagent-dev/kagent/helm/kagent -n kagent -f eks/helm/kagent-values.yaml
+
+providers:
+  default: openAI
+  openAI:
+    model: devstral-2-123b-instruct-bedrock
+    config:
+      baseUrl: http://litellm.llmops.svc.cluster.local:4000/v1
+
+argo-rollouts-agent:
+  enabled: false
+
+cilium-debug-agent:
+  enabled: false
+
+cilium-manager-agent:
+  enabled: false
+
+cilium-policy-agent:
+  enabled: false
+
+istio-agent:
+  enabled: false
+  
+observability-agent:
+  enabled: false
+
+kgateway-agent:
+  enabled: false

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hermes-config
+  namespace: hermes
+data:
+  config.yaml: |
+    # LiteLLM model_name → devstral-2-123b-instruct-bedrock (Bedrock via IRSA on litellm); see eks/manifests/05-litellm-configmap.yaml
+    model:
+      provider: custom
+      model: devstral-2-123b-instruct-bedrock
+      base_url: http://litellm.llmops.svc.cluster.local:4000/v1
