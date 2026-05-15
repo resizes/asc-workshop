@@ -104,6 +104,35 @@ h1, h2, h3, h4, h5, h6, p, div, span, a, li, td, th, label, button {
     transform: translateY(-8.5rem);
   }
 }
+
+.slidev-layout:has(.slide-diagram-center) {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  min-height: calc(100vh - 3rem);
+}
+
+.slide-diagram-center {
+  flex: 1;
+  min-height: 0;
+  max-height: calc(100vh - 6rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.slide-diagram-center img {
+  width: auto;
+  max-width: min(100%, 96vw);
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.slidev-page:has(.slide-diagram-center) {
+  overflow: visible !important;
+}
 </style>
 
 <div class="title-slide-stack">
@@ -516,6 +545,20 @@ layout: section
 
 </div>
 
+
+---
+
+## Context Window 
+<img src="/ContextWindow.svg" alt="ContextWindow" />
+
+---
+
+## Temperature
+
+<div class="slide-diagram-center">
+  <img src="/Temperature.svg" alt="Temperature" />
+</div>
+
 ---
 
 ## Code generation
@@ -872,6 +915,14 @@ layout: section
 | **Hermes → LiteLLM** | **`hermes-litellm`** → **`OPENAI_API_KEY`** · **`model`** **`devstral-2-123b-instruct-bedrock`** (`09` / `05`) |
 | **Hermes `/v1` API** | **`hermes-gateway`/`API_SERVER_KEY`** ([doc](https://hermes-agent.nousresearch.com/docs/user-guide/features/api-server)) |
 | **Hermes Telegram** (opt.) | **`hermes-telegram`** · **`TELEGRAM_*`** ([doc](https://hermes-agent.nousresearch.com/docs/user-guide/messaging/telegram)) |
+
+---
+
+## LLMOps Logical Diagram
+
+<div class="slide-diagram-center">
+  <img src="/GeneralDiagram.svg" alt="LLMOps Logical Diagram" />
+</div>
 
 ---
 
