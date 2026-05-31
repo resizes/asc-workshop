@@ -29,3 +29,4 @@ produces PDF (see Slidev [export docs](https://sli.dev/guide/exporting.html)).
 
 - **`kind/`** — local **kind** + **vLLM** manifests (Part 1).
 - **`eks/`** — **EKS** cluster config, Helm values, and **LiteLLM** / **Ollama** manifests (Part 2).
+
